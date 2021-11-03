@@ -32,16 +32,17 @@
 
                 @isset($url)
 					<form method="POST" action="{{ url("login/$url") }}">
+					@csrf
 						<span class="login100-form-title">
 							Admin Login
 						</span>
                 @else
 					<form method="POST" action="{{ route('login') }}">
+					@csrf
 						<span class="login100-form-title">
 							User Login
 						</span>
                 @endisset
-                    @csrf
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100 @error('email') is-invalid @enderror" type="email" name="email" id="email" value="{{ old('email') }}" placeholder="Email">
                         <span class="focus-input100"></span>
