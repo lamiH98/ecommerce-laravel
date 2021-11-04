@@ -90,4 +90,4 @@ Route::group(['prefix' => 'dashboard' , 'namespace' => 'dashboard' , 'middleware
 
 });
 
-Route::get('local/{lang?}', ['as' => 'local.change', 'uses' => 'Dashboard\LocalizationController@change']);
+Route::get('local/{lang?}', ['as' => 'local.change', 'uses' => 'dashboard\LocalizationController@change']);
