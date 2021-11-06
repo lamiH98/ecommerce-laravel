@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('category', 'sizes', 'colors', 'brand', 'reviews', 'images')->get()->take(10)->random();
+        $products = Product::with('category', 'sizes', 'colors', 'brand', 'reviews', 'images')->get()->take(10)->random(10);
         return $this->sendResponse('products', $products, 'All Product');
     }
 
