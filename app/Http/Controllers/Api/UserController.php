@@ -55,6 +55,7 @@ class UserController extends Controller
             file_put_contents("image\\" . $imageName, $realImage);
             $request['image'] = $imageName;
         }
+        return $this->sendResponse('user', $imageName);
         $rules = [
             'name'          => 'required',
             'email' => ['required', 'string', 'email', 'max:255',
