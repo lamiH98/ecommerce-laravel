@@ -46,6 +46,7 @@ class AddressController extends Controller
             'street'        => 'required',
             'user_id'       => 'required'
         ];
+        return $this->sendResponse('userAddress', $request->default);
         $validator = Validator::make($request->all(), $rules);
         if($validator->fails()) {
             return $this->sendError($validator->errors());
