@@ -141,10 +141,10 @@ class OrderController extends Controller
         }
         Notifications::create([
             "user_id"   => $user->id,
-            "title"     => 'Your Order',
+            "title"     => 'Your Order has been ' . $delivery,
             "body"      => 'Your Order has been ' . $delivery,
-            "title_ar"  => 'Your Order',
-            "body_ar"   => 'Your Order has been ' . $delivery,
+            "title_ar"  => 'طلبك  ' . $delivery,
+            "body_ar"   => 'طلبك ' . $delivery,
             "image"     => 'order'
         ]);
         if($request->delivery_status == '4') {
