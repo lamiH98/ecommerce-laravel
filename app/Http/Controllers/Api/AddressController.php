@@ -72,7 +72,7 @@ class AddressController extends Controller
             'default' => 0,
         ]);
         $address = Address::findOrFail($id);
-        return $this->sendResponse('userAddress', Address::where('user_id', $request->user_id)->where('default', 1)->get());
+        return $this->sendResponse('userAddress', Address::where('user_id', $request->user_id)->get());
         $address->update(['default' => $request->default]);
             return $this->sendSuccess('update address successfully');
     }
