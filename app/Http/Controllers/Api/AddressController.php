@@ -46,7 +46,6 @@ class AddressController extends Controller
             'street'        => 'required',
             'user_id'       => 'required'
         ];
-        return $this->sendResponse('userAddress', $request->default);
         $validator = Validator::make($request->all(), $rules);
         if($validator->fails()) {
             return $this->sendError($validator->errors());
@@ -73,6 +72,7 @@ class AddressController extends Controller
             'default' => 0,
         ]);
         $address = Address::findOrFail($id);
+        return $this->sendResponse('userAddress', Address::where('user_id', $request->user_id)->where('default', 1)->get());
         $address->update(['default' => $request->default]);
             return $this->sendSuccess('update address successfully');
     }
