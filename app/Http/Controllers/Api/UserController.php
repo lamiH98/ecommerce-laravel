@@ -55,7 +55,6 @@ class UserController extends Controller
             file_put_contents("image\" . $imageName, $realImage);
             $request['image'] = $imageName;
         }
-        return $this->sendResponse('user', file_put_contents("image\" . $imageName, $realImage));
         $rules = [
             'name'          => 'required',
             'email' => ['required', 'string', 'email', 'max:255',
@@ -70,6 +69,5 @@ class UserController extends Controller
         // $request['name'] = $request->name;
         $user->update($request->all());
         return $this->sendResponse('user', $user);
-            // return $this->sendSuccess('update user successfully');
     }
 }
