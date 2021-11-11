@@ -52,7 +52,7 @@ class UserController extends Controller
         if($request->imageBase64 != null) {
             $realImage = base64_decode($request->imageBase64);
             $imageName = $request->imageName;
-            file_put_contents("image\\" . $imageName, $realImage);
+            file_put_contents("image\" . $imageName, $realImage);
             $request['image'] = $imageName;
         }
         return $this->sendResponse('user', $realImage);
